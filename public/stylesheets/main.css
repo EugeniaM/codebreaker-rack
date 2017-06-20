@@ -29,7 +29,7 @@ input[type=text]:disabled {
   background: #ebebeb;
 }
 
-input[type=submit] {
+button[type=submit] {
   width: 100px;
   background: #698aad;
   color: #fff;
@@ -37,12 +37,12 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:disabled, button:disabled {
+button[type=submit]:disabled, button:disabled {
   background: #d1d1d1;
 }
 
-input[type=submit].guess-submit {
-  font-size: 14px;
+button[type=submit].start-btn {
+  font-size: 12px;
 }
 
 #name-validate {

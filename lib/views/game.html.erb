@@ -23,11 +23,11 @@
         <div class="error-msg" id="guess-validate">The number should contain 4 digits ranged from 1 to 6</div>
         <div class="btn-container">
           <% if !@@game_over %>
-            <input type="submit" value="Try" class="guess-submit">
+            <button type="submit" class="guess-submit">Try</button>
             <button id="hint" type="button">Hint</button>
           <% end %>
           <% if @@game_over %>
-            <input disabled type="submit" value="Try" class="guess-submit">
+            <button disabled type="submit" class="guess-submit">Try</button>
             <button disabled id="hint" type="button">Hint</button>
           <% end %>
         </div>
@@ -58,7 +58,7 @@
 
       <% if @@game_over%>
         <form method="get" action="/game">
-          <input type="submit" value="START GAME">
+          <button type="submit" class="start-btn">START GAME</button>
         </form>
       <% end %>
 
