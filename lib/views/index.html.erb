@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/"></base>
+    <title>Codebreaker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+  </head>
+  <body>
+    <h2 class="welcome">Welcome to Codebreaker</h2>
+    <form method="post" action="/post_name" id="name-form">
+      <label for="player-name">Enter your name</label>
+      <input name="name" type="text" id="player-name">
+      <div class="error-msg" id="name-validate">You have to specify your name first</div>
+      <input type="submit" value="START GAME">
+    </form>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
