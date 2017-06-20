@@ -75,7 +75,7 @@ class Action < BaseMethods
   end
 
   def get_statistics
-    @@stats = YAML.load(File.open("./scores/scores.yml"))
+    @@stats = YAML.load(File.open("./scores/scores.yml")) || []
     Rack::Response.new(render('statistics.html.erb'))
   end
 end
