@@ -64,7 +64,7 @@ class Action < BaseMethods
 
   def save_score
     if File.exists? ("./scores/scores.yml")
-      scores = YAML.load(File.open("./scores/scores.yml"))
+      scores = YAML.load(File.open("./scores/scores.yml")) || []
     else
       scores = []
       File.new("./scores/scores.yml", "w")
