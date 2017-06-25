@@ -10,8 +10,6 @@ class Action < BaseMethods
   @@game_over = false
   @@stats = []
 
-  attr_reader :request
-
   def initialize (req)
     @request = req
   end
