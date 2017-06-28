@@ -9,18 +9,19 @@ class Racker
 
   def initialize(env)
     @request = Rack::Request.new(env)
+    @request.session['start'] = true
     @action = Action.new(@request)
   end
 
   def response
     case @request.path
-    when "/" then @action.send('index')
-    when "/post_name" then @action.send('post_name')
-    when "/game" then @action.send('init_game')
-    when "/game_continue" then @action.send('game_continue')
-    when "/submit_guess" then @action.send('submit_guess')
-    when "/hint" then @action.send('hint')
-    when "/statistics" then @action.send('get_statistics')
+    when '/' then @action.index
+    when '/post_name' then @action.post_name
+    when '/game' then @action.init_game
+    when '/game_continue' then @action.game_continue
+    when '/submit_guess' then @action.submit_guess
+    when '/hint' then @action.hint
+    when '/statistics' then @action.get_statistics
     else Rack::Response.new('Not Found', 404)
     end
   end

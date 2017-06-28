@@ -10,23 +10,23 @@
   <body>
     <div class="logo">🎲 CODE BREAKER 🎲</div>
     <div class="game-container">
-      <p><%= @@player %>, try to guess a number that contains 4 digits ranged from 1 to 6</p>
+      <p><%= @player %>, try to guess a number that contains 4 digits ranged from 1 to 6</p>
       <p>You've got <b><%= game_turns%></b> attempts left</p>
       
       <form method="post" action="/submit_guess" class="guess-container" id="guess-form">
-        <% if !@@game_over %>
+        <% if !@game_over %>
           <input placeholder='Enter your guess' type="text" name='guess' id="guess-input" autofocus>
         <% end %>
-        <% if @@game_over %>
+        <% if @game_over %>
           <input disabled placeholder='Enter your guess' type="text" name='guess' id="guess-input">
         <% end %>
         <div class="error-msg" id="guess-validate">The number should contain 4 digits ranged from 1 to 6</div>
         <div class="btn-container">
-          <% if !@@game_over %>
+          <% if !@game_over %>
             <button type="submit" class="guess-submit">Try</button>
             <button id="hint" type="button">Hint</button>
           <% end %>
-          <% if @@game_over %>
+          <% if @game_over %>
             <button disabled type="submit" class="guess-submit">Try</button>
             <button disabled id="hint" type="button">Hint</button>
           <% end %>
@@ -38,25 +38,25 @@
         <p>Try to guess how many times and where it occurs 😉</p>
       </div>
 
-      <% if @@game_over == :won%>
+      <% if @game_over == :won%>
         <div class="win-msg">
           <p>🌟🌟🌟</p>
-          <p>🌟<%= @@player %>, you have won the game!🌟</p>
+          <p>🌟<%= @player %>, you have won the game!🌟</p>
           <p>The secret code was <%= get_code%></p>
           <p>🌟🌟🌟</p>
         </div>
       <% end %>
 
-      <% if @@game_over == :lost%>
+      <% if @game_over == :lost%>
         <div class="win-msg">
           <p>😢😢😢</p>
-          <p>😢<%= @@player %>, you have lost the game!😢</p>
+          <p>😢<%= @player %>, you have lost the game!😢</p>
           <p>The secret code was <%= get_code%></p>
           <p>😢😢😢</p>
         </div>
       <% end %>
 
-      <% if @@game_over%>
+      <% if @game_over%>
         <form method="get" action="/game">
           <button type="submit" class="start-btn">START GAME</button>
         </form>
@@ -64,7 +64,7 @@
 
       <div id="results-container">
         <p class="progress-header">🗒Your progress</p>
-        <% @@progress.each do |elem| %>
+        <% @progress.each do |elem| %>
           <div class="result-item">
             <p><%= "#{elem[:guess]}" %></p>
             <p><%= "#{elem[:marked_guess]}" %></p>
