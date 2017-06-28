@@ -11,7 +11,7 @@
     <h2 class="welcome">Welcome to Codebreaker</h2>
     <form method="post" action="/post_name" id="name-form">
       <label for="player-name">Enter your name</label>
-      <input name="name" type="text" id="player-name">
+      <input name="name" type="text" id="player-name" value="<%= get_name_value%>">
       <div class="error-msg" id="name-validate">You have to specify your name first</div>
       <button type="submit" class="start-btn">START GAME</button>
     </form>
